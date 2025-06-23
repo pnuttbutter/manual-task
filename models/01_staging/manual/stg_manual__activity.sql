@@ -9,7 +9,7 @@ with
 
         select
             safe_cast(customer_id as int) as customer_id,
-            safe_cast(customer_id as int) as subscription_id,
+            safe_cast(subscription_id as int) as subscription_id,
             safe_cast(from_date as date) as from_date, 
             safe_cast(to_date as date) as to_date, 
         from source
