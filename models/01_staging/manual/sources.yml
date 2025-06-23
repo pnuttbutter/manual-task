@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: manual
+    database: manual-task
+    tables:
+      - name: acq_orders
+      - name: activity
+      - name: customers
