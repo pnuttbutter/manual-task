@@ -1,9 +1,10 @@
-with
-
-    source as (select * from {{ source("manual", "activity") }}),
+with 
+    source as 
+    ( 
+        select * from {{ source("manual", "activity") }}
+    ),
 
     cleaned as
-
     (
 
         select
@@ -16,7 +17,7 @@ with
     )
 
 select customer_id, subscription_id, from_date, to_date
-from renamed
+from cleaned
 where customer_id is not null
     and subscription_id is not null
     and from_date is not null

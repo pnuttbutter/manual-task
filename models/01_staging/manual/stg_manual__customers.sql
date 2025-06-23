@@ -1,9 +1,10 @@
-with
-
-    source as (select * from {{ source("manual", "customers") }}),
+with 
+    source as 
+    (
+        select * from {{ source("manual", "customers") }}
+    ),
 
     cleaned as
-
     (
 
         select
@@ -14,5 +15,5 @@ with
     )
 
 select customer_id, country
-from renamed
+from cleaned
 where customer_id is not null
