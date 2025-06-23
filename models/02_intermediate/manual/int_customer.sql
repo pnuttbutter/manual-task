@@ -1,11 +1,11 @@
 with
-    customer_aquisition_date
+    customer_aquisition_date as 
     (
         select a.customer_id, min(a.from_date) as aquisition_date
         from {{ ref("stg_manual__activity") }} a
         group by 1
     ),
-    customer_active
+    customer_active as 
     (
         select a.customer_id
         from {{ ref("stg_manual__activity") }} a
@@ -15,10 +15,10 @@ with
 
 select
     c.customer_id,
-    c.aquisition_channel,
-    ao.country as country,
-    cad.aquisition_channel,
-    ca.customer_id is not null as is_active
+    ao.aquisition_channel,
+    c.country as country,
+    cad.aquisition_date,
+    ca.customer_id is not null as is_active,
 from {{ ref("stg_manual__customers") }} c
 left join
     {{ ref("stg_manual__acquisition_orders") }} ao on c.customer_id = ao.customer_id
