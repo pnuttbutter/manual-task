@@ -28,15 +28,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  01_staging:
-    manual:
-      +materialized: view
-      +schema: manual
-  02_intermediate:
-    manual:
-      +materialized: view
-      +schema: manual
-  03_mart:
-    manual:
-      +materialized: table
-      +schema: manual
+  manual_task:
+    01_staging:
+      manual:
+        +materialized: view
+        +schema: manual
+    02_intermediate:
+      manual:
+        +materialized: view
+        +schema: manual
+    03_mart:
+      manual:
+        +materialized: table
+        +schema: manual
