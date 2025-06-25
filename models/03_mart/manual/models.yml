@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: dim_manual__customers
+    description: "Customer"
+
+  - name: fact_manual__activity
+    description: "Customer subscription activity"
