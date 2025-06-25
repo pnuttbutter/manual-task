@@ -10,14 +10,14 @@ with
 
         select 
             safe_cast(customer_id as int) as customer_id,
-            lower(trim(taxonomy_business_category_group)) as aquisition_channel,
+            lower(trim(taxonomy_business_category_group)) as acquisition_channel,
         from source
         
     )
 
 select 
     customer_id, 
-    aquisition_channel,
+    acquisition_channel,
 from 
     cleaned
 where 

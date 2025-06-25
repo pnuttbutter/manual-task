@@ -1,0 +1,26 @@
+models:
+  - name: dim_manual_customers
+    config:
+      contract: {enforced: true}
+
+    constraints:
+      - type: primary_key
+        columns: [customer_id]
+    
+    columns:
+      - name: customer_id
+        data_type: int
+
+  - name: fact_manual_activity
+    config:
+      contract: {enforced: true}
+        
+    constraints:
+      - type: foreign_key
+        columns: [customer_id]
+    
+    columns:
+      - name: customer_id
+        data_type: int
+      - name: subscription_id
+        data_type: int

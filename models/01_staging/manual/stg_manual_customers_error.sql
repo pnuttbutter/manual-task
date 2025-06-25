@@ -14,7 +14,7 @@ with
 
     )
 
---returns customers that have a non-null customer id that can be safe casted to an int
+--returns all customers that have a customer id that is null, or cannot be safe-casted from string to int
 select customer_id, country
 from cleaned
-where customer_id is not null
+where customer_id is null
